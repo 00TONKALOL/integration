@@ -16,7 +16,7 @@ def add_person(request):
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-@api_view({'GET'})
+@api_view(['GET'])
 def fetch(request):
     users = Person.objects.all()
     serializer = PersonSerializer(users, many=True)
